@@ -24,19 +24,20 @@ export class TodolistComponent implements OnInit {
 
   addTask(description) {
     if (description) {
-      this.store.dispatch(new TaskActions.AddTask({ description: description, complete: false}));
+      this.store.dispatch(new TaskActions.AddTask({ description: description, complete: false }));
     }
   }
 
   deleteTask(index) {
-    this.store.dispatch(new TaskActions.RemoveTask(index));
+    if (!this.isChangeTask) {
+      this.store.dispatch(new TaskActions.RemoveTask(index));
+    }
   }
 
   changeTask(description, index) {
     if (!this.isChangeTask) {
       this.isChangeTask = true;
     } else {
-      console.log(description);
       this.store.dispatch(new TaskActions.ChangeTask(description, index));
       this.isChangeTask = false;
     }
@@ -50,7 +51,9 @@ export class TodolistComponent implements OnInit {
   }
 
   completeTask(index) {
-    this.store.dispatch(new TaskActions.CompleteTask(index));
+    if (!this.isChangeTask) {
+      this.store.dispatch(new TaskActions.CompleteTask(index));
+    }
   }
 
   ngOnInit() {

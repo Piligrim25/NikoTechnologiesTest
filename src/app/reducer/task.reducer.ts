@@ -22,7 +22,6 @@ export function reducer(state: Task[] = [initialState], action: TaskActions.Acti
 
         case TaskActions.REMOVE_TASK:
             state.splice(action.payload, 1);
-            console.log(state);
             return state;
 
         default:
