@@ -1,0 +1,43 @@
+<div class="body">
+
+  <div class="title">
+    <h3>To Do List</h3>
+  </div>
+
+  <div class="main">
+
+    <div class="left">
+
+      <p>Enter new task</p>
+
+      <input type="text" placeholder="description" #description>
+
+      <button (click)="addTask(description.value)" class="btn btn--primary uppercase">Add a Task</button>
+    </div>
+
+    <div class="right" *ngIf="tasks">
+
+      <ul>
+        <li *ngFor="let task of tasks | async; let i = index">
+          <div (click)="changeStatus(i)"><i class="fas fa-pencil-alt"></i></div>
+          <div *ngIf="!isChangeTask || i!= index">
+            <div *ngIf="task.complete" class="completeText">
+              {{ task.description }}
+            </div>
+            <div *ngIf="!task.complete">
+              {{ task.description }}
+            </div>
+          </div>
+
+          <div *ngIf="isChangeTask && i === index">
+            <input type="text" [value]=" task.description" #box (keyup.enter)=" changeTask(box.value, i)">
+          </div>
+
+          <button (click)="completeTask(i)" class="btn btn--primary uppercase" *ngIf="!task.complete">Complete Task</button>
+          <button (click)="deleteTask(i)" class="btn btn--primary uppercase">Delete Task</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

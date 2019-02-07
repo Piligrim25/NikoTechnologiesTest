@@ -1,0 +1,66 @@
+.body {
+    font-family: 'Mali', cursive;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    color: #05156d;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 50px 10px 50px;
+}
+
+.right {
+    flex-direction: row;
+    text-align: right;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+.completeText {
+    text-decoration: line-through;
+    background-color: #fff;
+}
+
+.btn {
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 5px;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+}
+
+.btn--primary {
+    background: #7f8ff4;
+    color: #fff;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 12px 36px;
+}
+
+.btn--primary:hover {
+    background: #6c7ff2;
+}
+
+input {
+    width: 330px;
+    background: #fff;
+    color: #a3a3a3;
+    font: inherit;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+    border: 0;
+    outline: 0;
+    padding: 22px 18px;
+}
